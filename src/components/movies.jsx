@@ -1,26 +1,18 @@
+import { map } from "fontawesome";
 import React, { useState, useEffect } from "react";
 import { getMovies } from "../services/fakeMovieService";
 
 const Movies = () => {
-  let allMovies = "";
-  const [movies, setMovies] = useState();
+    const allMovies = getMovies();
+    const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    allMovies = getMovies();
-  }, []);
+    setMovies(allMovies)
 
-  useEffect(() => {
-    setMovies(allMovies);
-    console.log(movies);
-    console.log(allMovies);
-  }, []);
 
-  // state = {
-  //     movies:getMovies()
-  // };
-  // const [movie, setMovie] = useState({title: movie.title, genre: movie.genre,
-  //      numberInStock: movie.numberInStock,
-  //      dailyRentalRate: movie.dailyRentalRate})
+  }, []);
+  console.log(movies)
+
   return (
     <table className="table">
       <thead>
@@ -32,14 +24,17 @@ const Movies = () => {
         </tr>
       </thead>
       <tbody>
-        {allMovies.map((movie) => (
-          <tr>
-            <td>{movie.title}</td>
-            <td>{movie.genre}</td>
-            <td></td>
-            <td></td>
-          </tr>
+        { movies.map(movie => (
+            <tr key={movie._id} >
+                <td>{ movie.title }</td>
+                <td> { movie.genre.name}</td>
+                <td> { movie.numberInStock}</td>
+                <td> { movie.dailyRentalRate}</td>
+            </tr>
+
         ))}
+
+
       </tbody>
     </table>
   );
