@@ -3,20 +3,23 @@ import React, { useState, useEffect } from "react";
 import { getMovies } from "../services/fakeMovieService";
 
 const Movies = () => {
-    const allMovies = getMovies();
-    const [movies, setMovies] = useState([]);
-    // const [handleDelete, setHandleDelete] = useState('');
-    // handleDelete = movie => { console.log(movie)};
-    const handleDelete = (id) => {
-      setMovies(movies.filter(deck => deck.id !== id));
-   }
+  const allMovies = getMovies();
+  const [movies, setMovies] = useState([]);
+
+  //  const deleteItem = (e) => {
+  //   const newTodos = todos.filter((item) => item.index !== 1 /*This works properly with a hardcoded value(1) but how can this be done dynamically as e doesn't seem to have anything useful within it (like e.target.value)*/);
+  //   setTodos(newTodos);
+  // };
 
   useEffect(() => {
-    setMovies(allMovies)
-
-
+    setMovies(allMovies);
   }, [allMovies]);
-  console.log(movies)
+  console.log(movies);
+
+  const handleDelete = (id) => {
+    const deleted = movies.filter((movie) => movie._id !== id);
+    setMovies(deleted);
+  };
 
   return (
     <table className="table">
@@ -30,18 +33,24 @@ const Movies = () => {
         </tr>
       </thead>
       <tbody>
-        { movies.map(movie => (
-            <tr key={movie._id} >
-                <td>{ movie.title }</td>
-                <td> { movie.genre.name}</td>
-                <td> { movie.numberInStock}</td>
-                <td> { movie.dailyRentalRate}</td>
-                <td><button onClick={() => handleDelete= { handleDelete}} className="btn btn-danger btn-sm">Delete</button></td>
-            </tr>
-
+        {movies.map((movie) => (
+          <tr key={movie._id}>
+            <td>{movie.title}</td>
+            <td> {movie.genre.name}</td>
+            <td> {movie.numberInStock}</td>
+            <td> {movie.dailyRentalRate}</td>
+            <td>
+              <button
+                onClick={() => {
+                  handleDelete(movie._id);
+                }}
+                className="btn btn-danger btn-sm"
+              >
+                Delete
+              </button>
+            </td>
+          </tr>
         ))}
-
-
       </tbody>
     </table>
   );
@@ -49,5 +58,4 @@ const Movies = () => {
 
 export default Movies;
 
-
-// how to get the stock data of Tesla in python?
+// how to write delete functtion in react?
