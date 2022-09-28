@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { getMovies } from "../services/fakeMovieService";
 
-const Movies = () => {
+export const Movies = () => {
   const allMovies = getMovies();
   const [movies, setMovies] = useState([]);
 
