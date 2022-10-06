@@ -29,10 +29,47 @@ section{
     font-family: 'Poppins';
 }
 .hero-photo{
-    max-width: 400px;
+    width: 900px;
     align-self: center;
 }
 .hero--h1{
     margin-bottom: 16px;
     text-align: left;
+}
+.card--grid{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 20px;
+    /* width: 175%; */
+    /* font-size: 12px; */
+
+}
+
+.card--man{
+    width: 400px;
+    border-radius: 10px;
+}
+.card--star{
+    height: 20px;
+}
+
+.card--wedding{
+    width: 400px;
+    border-radius: 10px;
+}
+
+.card--bike{
+    width: 280px;
+    border-radius: 10px;
+}
+.tag--bold{
+    /* font-size: 12px; */
+    font-weight: bold;
+}
+.gray{
+    color: #918E9B;
+}
+.card--set{
+    left: -50px;
+
 }
