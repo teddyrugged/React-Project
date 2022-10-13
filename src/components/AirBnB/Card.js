@@ -50,7 +50,7 @@ export default Card
 </div> */}
 
 
-
+// eslint-disable-next-line
 {/* <div className='card--two'>
             <img src={ wedding } alt = "a pic" className="card--wedding" />
             <div>
@@ -65,6 +65,7 @@ export default Card
             <p>Learn wedding photography</p>
             <p><span className='tag--bold'>From $125 </span>/ person</p>
         </div> */}
+        // eslint-disable-next-line
         {/* <div className='card--three'>
             <img src={ bike } alt = "a pic" className="card--bike" />
             <div>
