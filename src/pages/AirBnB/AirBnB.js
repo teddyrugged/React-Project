@@ -28,7 +28,9 @@ const AirBnB = () => {
 
       < Navbar/>
       <HeroSection />
+      <section className="card--list">
       {datas}
+      </section>
 
     </div>
   )
